@@ -1,11 +1,11 @@
 import { restaurantList } from "./Config";
 import RestaurantCard from "./RestaurantCard";
-import React, {  useState } from 'react';
+import React, {  useState , useEffect, } from 'react';
 
 
 function FilterData (searchTxt, restaurants){
       const OurFilteredData =  restaurants.filter((restaurant) => 
-        restaurant.data.name.includes(searchTxt)
+        restaurant.info.name.includes(searchTxt)
        );
        return OurFilteredData;
 }
@@ -13,7 +13,22 @@ function FilterData (searchTxt, restaurants){
 const Body = () => {
 
   const [searchTxt, setSearchTxt] = useState("Enter your search");
-  const [restaurants, setRestaurants] = useState(restaurantList)
+  const [restaurants, setRestaurants] = useState(restaurantList);
+
+  useEffect(()=> {
+    getRestaurants();
+  },[] );
+
+  async function getRestaurants(){
+    const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=28.6855342&lng=77.2042274&carousel=true&third_party_vendor=1");
+    const json = await data.json(); 
+    console.log(json);
+    const apiRestaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+    console.log(apiRestaurants);
+    setRestaurants(apiRestaurants);
+  }
+
+
   return (
     <>
       <div className="search-container">
@@ -38,7 +53,7 @@ const Body = () => {
         {
           restaurants.map((restaurant) => {
             return(
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+            <RestaurantCard {...(restaurant.info || {})} key={restaurant?.info?.id || Math.random()}/>
           )
           })
         }
