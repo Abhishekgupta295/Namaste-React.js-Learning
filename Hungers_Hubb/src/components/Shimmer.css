@@ -1,0 +1,8 @@
+.shimmer-card{
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    margin: 20px;
+    border-radius: 10px;
+    animation: shimmer 1.5s infinite;
+}

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Contact from './Contact';
 
 
 const title = (
@@ -29,9 +31,9 @@ const Header = () => {
 
       <div className='nav-items  '>
            <ul>
-               <li>Home</li>
-               <li>Contact US</li>
-               <li>About</li>
+               <li><Link to={'/'}>Home</Link></li>
+               <li><Link to={'/Contact'}>Contact US</Link></li>
+               <li><Link to={'/About'}>About</Link></li>
                <li>Cart</li>
            </ul>
       </div>
