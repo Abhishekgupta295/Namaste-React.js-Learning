@@ -2,6 +2,7 @@
 import RestaurantCard from "./RestaurantCard";
 import React, {  useState , useEffect, } from 'react';
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 function FilterData (searchTxt, restaurants){
@@ -69,7 +70,10 @@ const Body = () => {
            {
             filteredRestaurants.map((restaurant) => {
             return(
-            <RestaurantCard {...(restaurant.info || {})} key={restaurant?.info?.id || Math.random()}/>
+              <Link to = {`/Restaurant/${restaurant.info.id}`}   key={restaurant?.info?.id || Math.random()}>
+                <RestaurantCard {...(restaurant.info || {})} />
+              </Link>
+            
             )})
           }
 

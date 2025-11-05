@@ -1818,3 +1818,4 @@ export const IMG_URL_CDN = "https://media-assets.swiggy.com/swiggy/image/upload/
     subtype: "basic",
   },
 ];
+
