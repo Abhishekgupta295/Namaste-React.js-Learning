@@ -3,14 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 import React, {  useState , useEffect, } from 'react';
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { FilterData } from "../utils/Helper";
 
 
-function FilterData (searchTxt, restaurants){
-      const OurFilteredData =  restaurants.filter((restaurant) => 
-        restaurant?.info?.name?.toLowerCase()?.includes(searchTxt.toLowerCase())
-       );
-       return OurFilteredData;
-}
+
 
 const Body = () => {
 
