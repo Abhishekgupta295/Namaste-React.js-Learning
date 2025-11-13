@@ -30,6 +30,7 @@ class ProfileClass extends React.Component
             image : json.avatar_url,
         })
         
+       
     }
 
     componentDidUpdate(){
@@ -37,6 +38,7 @@ class ProfileClass extends React.Component
     }
     componentWillUnmount(){
         console.log("Child-ComponentWillUnmount");
+        
     }
 
     render(){
