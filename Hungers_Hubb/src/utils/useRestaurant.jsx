@@ -12,7 +12,8 @@ const useRestaurant = ( ) => {
 
     //fetching data using Namaste React dummysiwggy api json data
 
-            async function getRestaurantInfo() {
+            async function getRestaurantInfo() 
+            {
                 const data = await fetch("/dummy_swiggyNR.json");
 
                 const json = await data.json();
