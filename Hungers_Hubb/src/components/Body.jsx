@@ -1,6 +1,6 @@
-// import { restaurantList } from "./Config";
+//  import { restaurantList } from "./Config";
 import RestaurantCard from "./RestaurantCard";
-import React, {  useState , useEffect, } from 'react';
+import React, { useState , useEffect } from 'react';
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { FilterData } from "../utils/Helper";
@@ -19,6 +19,7 @@ const Body = () => {
   },[] );
 
   async function getRestaurants(){
+
     const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=28.6855342&lng=77.2042274&carousel=true&third_party_vendor=1");
     const json = await data.json(); 
     console.log(json);

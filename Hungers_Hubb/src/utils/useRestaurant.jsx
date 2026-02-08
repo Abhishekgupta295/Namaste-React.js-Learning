@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const useRestaurant = ( ) => {
 
-    const [restaurant, setRestaurant] =  useState(null)
+    const [restaurant, setRestaurant] =  useState(null);
    
      useEffect(
         ( )=> {
@@ -10,7 +10,7 @@ const useRestaurant = ( ) => {
         },[] 
     );
 
-    //fetching data using Namaste React dummysiwggy api json data
+    //fetching data using Namaste React dummyswiggy api json data
 
             async function getRestaurantInfo() 
             {
@@ -31,7 +31,7 @@ const useRestaurant = ( ) => {
             }
    
 
-                  //fetching data using actuall siwggy api json data
+// fetching data using actuall siwggy api json data
 
 //     async function getRestaurantInfo() 
 //     {
@@ -39,9 +39,23 @@ const useRestaurant = ( ) => {
 //         try 
 //         {
 //             console.log("Inside try block");
-//             const response = await fetch('/swiggy_data.json');
-//             const json = await response.json();
-//             console.log("Fetched JSON '::", json);
+//             console.log("Fetching JSON from URL...");
+//             const response = await fetch('https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6488931&lng=77.13593279999999&restaurantId=483435&catalog_qa=undefined&submitAction=ENTER');
+            
+//             console.log("Response status:", response.status);
+//             console.log("Response ok:", response.ok);
+
+//             const text = await response.text(); // 👈 pehle text read karo
+//             console.log("Raw response:", text);
+
+//             if (!text) {
+//             throw new Error("Empty response received");
+//             }
+
+//             const json = JSON.parse(text); // 👈 manually parse
+//             console.log("Parsed JSON:", json);
+//             // const json = await response.json();
+//             // console.log("Fetched JSON :", json);
 
             
 
@@ -50,7 +64,7 @@ const useRestaurant = ( ) => {
 
             
 
-//             setRestaurantDetails(restaurantData[2]?.card?.card?.info)
+//             setRestaurant(restaurantData[2]?.card?.card?.info)
             
             
 
