@@ -9,7 +9,7 @@ import useOnline from "../utils/useOnline";
 
 
 
-const Body = () => {
+const Body = ({user}) => {
 
   const [searchTxt, setSearchTxt] = useState("Enter your search");
   const [allrestaurants, setAllRestaurants] = useState([]);
@@ -77,7 +77,7 @@ const Body = () => {
             filteredRestaurants.map((restaurant) => {
             return(
               <Link to = {`/Restaurant/${restaurant.info.id}`}   key={restaurant?.info?.id || Math.random()}>
-                <RestaurantCard {...(restaurant.info || {})} />
+                <RestaurantCard {...(restaurant.info || {})} user = {user}/>
               </Link>
             
             )})

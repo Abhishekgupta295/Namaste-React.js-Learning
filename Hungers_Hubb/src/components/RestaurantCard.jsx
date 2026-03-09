@@ -2,7 +2,7 @@ import React from 'react';
 import { IMG_URL_CDN } from './Config';
 
 
-const RestaurantCard = ({name, cuisines, lastMileTravelString, cloudinaryImageId}) => {
+const RestaurantCard = ({name, cuisines, sla, cloudinaryImageId,user}) => {
 
   
   return(
@@ -11,7 +11,8 @@ const RestaurantCard = ({name, cuisines, lastMileTravelString, cloudinaryImageId
   alt='img'/>
        <h2 className='font-bold text-xl'>{name}</h2>
        <h3>{cuisines?.join(",")}</h3>
-       <h3>{lastMileTravelString} minutes</h3>
+       <h3>{sla.lastMileTravelString} minutes</h3>
+       <h3>{user?.name}</h3>
     </div>
   )
 }

@@ -45,7 +45,7 @@ const appRouter = createBrowserRouter(
 
                         {
                           path : "/",
-                          element : <Body />,
+                          element : <Body  user = {{name : 'Abhishek'}} />,
 
                         },
                         {
