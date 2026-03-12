@@ -1,21 +1,27 @@
 //  import { restaurantList } from "./Config";
 import RestaurantCard from "./RestaurantCard";
-import React, { useState , useEffect } from 'react';
+import React, { useState , useEffect, useContext } from 'react';
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { FilterData } from "../utils/Helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 
 
 
-const Body = ({user}) => {
+const Body = () => {
+
+  const {user, setUser} = useContext(UserContext);
 
   const [searchTxt, setSearchTxt] = useState("Enter your search");
   const [allrestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const userOnlineStatus = useOnline();
+
+  console.log("Body Rendered");
+  console.log("user in body is : ", user);
 
   
   useEffect(()=> {
@@ -67,6 +73,26 @@ const Body = ({user}) => {
             console.log("Clicked", searchTxt);
            }}
          >Search </button>
+         <input 
+            type="text"
+            placeholder="Search for restaurants"
+            className="search-input bg-yellow-100 focus:bg-blue-400"
+            value={user.name}
+            onChange={(e) => setUser({
+                ...user,
+              name : e.target.value,
+            })} 
+         />
+         <input 
+            type="text"
+            placeholder="Search for restaurants"
+            className="search-input bg-yellow-100 focus:bg-blue-400"
+            value={user.email}
+            onChange={(e) => setUser({
+                ...user,
+              email : e.target.value,
+            })} 
+         />
       </div>
     
 

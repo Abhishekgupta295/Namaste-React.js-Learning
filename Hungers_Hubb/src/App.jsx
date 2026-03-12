@@ -12,6 +12,8 @@ import ProfileClass from './components/ProfileClass';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import { lazy,Suspense } from 'react';
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/UserContext';
+import { useState } from 'react';
 //import Instamart from './components/Instamart';
 
 // dynamic import for code splitting and lazy loading of Instamart component
@@ -24,13 +26,26 @@ const About = lazy(() => import('./components/About'));
 // at the top level of the file, if we call it inside other function body then it will throw error because it will violate 
 // the rules of hooks.
 
+
+
+
  const AppLayout = () =>
 {
+
+  const [user, setUser] = useState({
+    name : "Abhishek Kumar Singh",
+    email : "RwV0T@example.com"
+  })
+
+
   return(  
     <>
+      <UserContext.Provider value = {{user : user, setUser : setUser}} >
         <Header />
          <Outlet />
         <Footer />  
+      </UserContext.Provider>
+       
     </>   
   )
 }
@@ -45,7 +60,7 @@ const appRouter = createBrowserRouter(
 
                         {
                           path : "/",
-                          element : <Body  user = {{name : 'Abhishek'}} />,
+                          element : <Body  />,
 
                         },
                         {

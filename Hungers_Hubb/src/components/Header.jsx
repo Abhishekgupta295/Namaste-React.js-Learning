@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Contact from './Contact';
 import useOnline from '../utils/useOnline';
+import UserContext from '../utils/UserContext';
 
 
 const title = (
@@ -16,6 +17,8 @@ const title = (
 )
 
 
+
+
 // const isUserLoggedIn = () => {
 //   return true;
 // }
@@ -26,6 +29,11 @@ const Header = () => {
 
   const [isloggedIn, setIsLoggedIn] = useState(true); 
   const isOnline = useOnline();
+
+
+  const userinfo = useContext(UserContext);
+  console.log("userinfo  is : ",userinfo);
+
   
   return(
     <div className='flex justify-between bg-pink-200 shadow-xl sm:bg-blue-200 md:bg-yellow-200 lg:bg-green-200'>
@@ -39,6 +47,7 @@ const Header = () => {
                <li className='px-2'><Link to={'/instamart'}>Instamart</Link></li>
            </ul>
       </div>
+      <p className='m-2 p-2 font-bold text-red-600'>{userinfo.user.name}</p>
       <div>
          {
            isOnline ? " 🟢 Online" : " 🔴 Offline"
