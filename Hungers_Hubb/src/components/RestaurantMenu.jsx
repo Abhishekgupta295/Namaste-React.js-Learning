@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import {IMG_URL_CDN} from "./Config";
 import Shimmer from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
 
 
 const RestaurantMenu = () => {
@@ -12,6 +14,15 @@ const RestaurantMenu = () => {
     console.log("hello");
 
     const restaurant = useRestaurant(params.id);
+    const dispatch = useDispatch();
+
+    // const handleclick = () => {
+    //     dispatch(addItem("Grapes"));
+    //  }
+
+    const handleAddFood = (item) => {
+        dispatch(addItem(item));
+     }
     
     
     // const [restaurantdetails, setRestaurantDetails] = useState({}); 
@@ -49,9 +60,14 @@ const RestaurantMenu = () => {
                  {
                     restaurant.map((item, index) => (
                         <li key={index}>
-                            {item}
+                            {item } - {<button className="m-2 p-2 bg-green-300" onClick={() => handleAddFood(item)}>ADD</button>}
                         </li>
                     ))
+                 }
+                 {
+                    // <button className="m-2 p-2 bg-green-300" onClick={() => handleclick()}>
+                    //     Add to Cart
+                    // </button>
                  }
 
                  {

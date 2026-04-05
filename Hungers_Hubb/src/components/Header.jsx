@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Contact from './Contact';
 import useOnline from '../utils/useOnline';
 import UserContext from '../utils/UserContext';
+import { useSelector } from 'react-redux';
+import Cart from './Cart';
 
 
 const title = (
@@ -30,6 +32,11 @@ const Header = () => {
   const [isloggedIn, setIsLoggedIn] = useState(true); 
   const isOnline = useOnline();
 
+  const cartitems = useSelector((AppStore) => AppStore.cart.items) // here we are using useSelector hook to get the cart items
+  //  from the store, we are passing a callback function to useSelector which takes the entire store state as an argument 
+  // and returns the specific part of the state that we want to access, in this case we are accessing the cart items from the
+  //  cart slice of the store.
+  console.log("cart items is : ", cartitems);
 
   const userinfo = useContext(UserContext);
   console.log("userinfo  is : ",userinfo);
@@ -45,6 +52,7 @@ const Header = () => {
                <li className='px-2'><Link to={'/Contact'}>Contact US</Link></li>
                <li className='px-2'><Link to={'/About'}>About</Link></li>
                <li className='px-2'><Link to={'/instamart'}>Instamart</Link></li>
+               <li className='px-2'><Link to={'/Cart'}>Cart - {cartitems.length} items</Link></li>
            </ul>
       </div>
       <p className='m-2 p-2 font-bold text-red-600'>{userinfo.user.name}</p>

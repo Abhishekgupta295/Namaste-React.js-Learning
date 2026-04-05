@@ -14,6 +14,10 @@ import { lazy,Suspense } from 'react';
 import Shimmer from './components/Shimmer';
 import UserContext from './utils/UserContext';
 import { useState } from 'react';
+import { Provider } from 'react-redux';
+import Cart from './components/Cart';
+
+import AppStore from './utils/AppStore';
 //import Instamart from './components/Instamart';
 
 // dynamic import for code splitting and lazy loading of Instamart component
@@ -39,13 +43,14 @@ const About = lazy(() => import('./components/About'));
 
 
   return(  
-    <>
-      <UserContext.Provider value = {{user : user, setUser : setUser}} >
-        <Header />
-         <Outlet />
-        <Footer />  
-      </UserContext.Provider>
-       
+    <> 
+      <Provider store = {AppStore}>
+          <UserContext.Provider value = {{user : user, setUser : setUser}} >
+            <Header />
+            <Outlet />
+            <Footer />  
+          </UserContext.Provider>
+      </Provider>
     </>   
   )
 }
@@ -92,6 +97,11 @@ const appRouter = createBrowserRouter(
                           path : "/instamart",
                           element : <suspense fallback = {<h1>Loading Instamart...</h1>}><Instamart/></suspense>, // Instamart component will be loaded only when user
                           //  navigates to /instamart route
+
+                        },
+                         {
+                          path : "/Cart",
+                          element : <Cart />,
 
                         },
                    ]
