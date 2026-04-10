@@ -41,3 +41,7 @@ const Cart = () => {
 }
 
 export default Cart
+
+
+//why we do testing? to check new code doesn't break existing code
+// test driven dev :-  we write test cases first and after that we write the code.

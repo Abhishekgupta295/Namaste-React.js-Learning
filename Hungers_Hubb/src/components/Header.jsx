@@ -6,6 +6,7 @@ import useOnline from '../utils/useOnline';
 import UserContext from '../utils/UserContext';
 import { useSelector } from 'react-redux';
 import Cart from './Cart';
+import logo from "../assets/Hungers_Hubb_LOGO.png";
 
 
 const title = (
@@ -13,7 +14,8 @@ const title = (
     <img
       className='h-28 p-2'
       alt='Hungers_Hubb_LOGO' 
-      src='./public/Hungers_Hubb_LOGO.png'
+      src={logo}
+      data-testid="logo"
     />
   </a>
 )
@@ -52,13 +54,13 @@ const Header = () => {
                <li className='px-2'><Link to={'/Contact'}>Contact US</Link></li>
                <li className='px-2'><Link to={'/About'}>About</Link></li>
                <li className='px-2'><Link to={'/instamart'}>Instamart</Link></li>
-               <li className='px-2'><Link to={'/Cart'}>Cart - {cartitems.length} items</Link></li>
+               <li className='px-2' data-testid = "cart-count"><Link to={'/Cart'}>Cart - {cartitems.length} items</Link></li>
            </ul>
       </div>
       <p className='m-2 p-2 font-bold text-red-600'>{userinfo.user.name}</p>
-      <div>
+      <div data-testid = "online-status">
          {
-           isOnline ? " 🟢 Online" : " 🔴 Offline"
+           isOnline ? "🟢 Online" : "🔴 Offline"
          }
       </div>
       <div>
