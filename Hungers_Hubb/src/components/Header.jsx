@@ -6,7 +6,7 @@ import useOnline from '../utils/useOnline';
 import UserContext from '../utils/UserContext';
 import { useSelector } from 'react-redux';
 import Cart from './Cart';
-import logo from "../assets/Hungers_Hubb_LOGO.png";
+import logo from "../../public/hungers_hubb_logo.png";
 
 
 const title = (

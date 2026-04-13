@@ -64,6 +64,7 @@ const Body = () => {
             className="search-input bg-yellow-100 focus:bg-blue-400"
             value={searchTxt}
             onChange={(e) => setSearchTxt(e.target.value)} 
+            data-testid="search-input"
          />
          <button 
            className="search-button hover:bg-blue-900 bg-gray-300 rounded-md m-2 p-2"
@@ -71,7 +72,9 @@ const Body = () => {
             const data = FilterData(searchTxt, allrestaurants);
             setFilteredRestaurants(data);
             console.log("Clicked", searchTxt);
+             
            }}
+           data-testid="search-btn"
          >Search </button>
          <input 
             type="text"
@@ -96,7 +99,7 @@ const Body = () => {
       </div>
     
 
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' data-testid="restaurant-list">
         
           
            {

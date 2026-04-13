@@ -4,11 +4,11 @@ import './Shimmer.css';
 
 const Shimmer = () => {
   return (
-    <div className="restaurant-list">
+    <div className="restaurant-list" data-testid="shimmer-card">
       {
        Array(10)
        .fill(" ")
-       .map((e,index)=> (<div key={index} className="shimmer-card"></div>))
+       .map((e,index)=> (<div key={index} className="shimmer-card" ></div>))
       }
         
     </div>
