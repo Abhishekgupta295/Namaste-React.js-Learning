@@ -59,9 +59,11 @@ const RestaurantMenu = () => {
 
                  {
                     restaurant.map((item, index) => (
-                        <li key={index}>
-                            {item } - {<button className="m-2 p-2 bg-green-300" onClick={() => handleAddFood(item)}>ADD</button>}
-                        </li>
+                        <ul data-testid="menu-items" key={index}> 
+                            <li key={index}>
+                                {item } - {<button className="m-2 p-2 bg-green-300" data-testid="add-button" onClick={() => handleAddFood(item)}>ADD</button>}
+                            </li>
+                        </ul>
                     ))
                  }
                  {
@@ -88,3 +90,4 @@ const RestaurantMenu = () => {
 }
 
 export default RestaurantMenu;
+
