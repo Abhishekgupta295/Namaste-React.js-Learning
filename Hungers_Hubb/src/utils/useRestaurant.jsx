@@ -15,7 +15,7 @@ const useRestaurant = ( ) => {
             async function getRestaurantInfo() 
             {
                 const data = await fetch("/dummy_swiggyNR.json");
-
+                
                 const json = await data.json();
                 console.log("Fetching JSON data",json);
                 const newData = json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
