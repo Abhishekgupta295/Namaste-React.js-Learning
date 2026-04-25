@@ -1,8 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+
+    const toggleMenu = useSelector((store) => store.app.isMenuOpen);
+
+    //
+    if(!toggleMenu) return null;
   return (
-    <div className='shadow-lg p-4 w-48 col-span-1 bg-red-200'>
+    <div className='shadow-lg p-4 w-48 bg-red-200'>
+
+
 
         <ul>
             <li>Music</li>

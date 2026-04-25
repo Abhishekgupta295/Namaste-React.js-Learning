@@ -5,10 +5,10 @@ import MainContainer from './MainContainer'
 
 const Body = () => {
   return (
-    <div className='grid grid-cols-12' >
+    <div className='flex' >
         <Sidebar />
         <MainContainer />
-    </div>
+    </div> 
   )
 }
 
