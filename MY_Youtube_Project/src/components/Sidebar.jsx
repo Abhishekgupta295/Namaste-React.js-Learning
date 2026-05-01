@@ -9,7 +9,7 @@ const Sidebar = () => {
     //
     if(!toggleMenu) return null;
   return (
-    <div className='shadow-lg p-4 w-48'>
+    <div className='shadow-lg p-4 w-48 bg-pink-300'>
 
 
 
