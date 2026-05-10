@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchSlice = () => {
   return (
-    <div>S</div>
+    <div>Search</div>
   )
 }
 
